@@ -4,25 +4,53 @@
     <meta charset="UTF-8" />
     <title>Image Display</title>
     <style>
-      body {
+      * {
         margin: 0;
-        display: flex;
-        height: 100vh;
-        justify-content: center;
-        align-items: center;
-        background-color: #f0f0f0;
+        padding: 0;
+        box-sizing: border-box;
       }
-      img {
+
+      body {
+        background-color: #f0f0f0;
+        overflow-x: hidden; /* No horizontal scroll */
+        padding: 20px;
+      }
+
+      .image-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .image-grid img {
+        width: calc(20% - 16px); /* 5 per row with gap */
         max-width: 100%;
-        max-height: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      @media (max-width: 800px) {
+        .image-grid img {
+          width: calc(33.33% - 14px); /* 3 per row for smaller screens */
+        }
+      }
+
+      @media (max-width: 500px) {
+        .image-grid img {
+          width: 100%; /* 1 per row on very small screens */
+        }
       }
     </style>
   </head>
   <body>
-    <img src="images/cheque-stop.png" alt="Image" />
-    <img src="images/cheque-request.png" alt="Image" />
-    <img src="images/favourite.png" alt="Image" />
-    <img src="images/update.png" alt="Image" />
-    <img src="images/calculator.png" alt="Image" />
+    <div class="image-grid">
+      <img src="images/cheque-stop.png" alt="Image 1" />
+      <img src="images/cheque-request.png" alt="Image 2" />
+      <img src="images/favourite.png" alt="Image 3" />
+      <img src="images/update.png" alt="Image 4" />
+      <img src="images/calculator.png" alt="Image 5" />
+    </div>
   </body>
 </html>
